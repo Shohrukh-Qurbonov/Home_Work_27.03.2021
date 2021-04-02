@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "GetResultOfScan";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div>
+        <h2 class="text-info header-text">Резултать поиска</h2>
+        <table class="table table-hover">
+            <thead class="table-primary">
+                <tr>
+                    <th scope="col">№</th>
+                    <th scope="col">Имя</th>
+                    <th scope="col">Фамилия</th>
+                    <th scope="col">Очество</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model.Count > 0)
+                {
+                    foreach (var person in Model)
+                    {
+                        <tr>
+                            <td>@person.id</td>
+                            <td>@person.firstName</td>
+                            <td>@person.lastName</td>
+                            <td>@person.middleName</td>
+                        </tr>
+                    }
+
+                }
+                else
+                {
+                    <tr>
+                        <td class="text-center" colspan="5">Пустой</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a asp-controller="Customer" asp-action="Read">Назад к списку</a>
+    </div>
+</body>
+</html>

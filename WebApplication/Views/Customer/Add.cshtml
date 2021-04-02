@@ -1,0 +1,44 @@
+@model WebApplication.Models.Person
+
+@{
+    ViewData["Title"] = "Add";
+}
+    <div class="container">
+        <h2 class="header-text">Создать аккаунт</h2>
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <hr />
+            <div class="col-lg-6">
+                <form asp-action="Add">
+                    <div class="form-group">
+                        <label asp-for="firstName" class="control-label">Имя</label>
+                        <input asp-for="firstName" class="form-control" />
+                        <span asp-validation-for="firstName" class="text-danger"></span>
+                    </div>
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <div class="form-group">
+                        <label asp-for="lastName" class="control-label">Фамилия</label>
+                        <input asp-for="lastName" class="form-control" />
+                        <span asp-validation-for="lastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="middleName" class="control-label">Отчество</label>
+                        <input asp-for="middleName" class="form-control" />
+                        <span asp-validation-for="middleName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Создать" class="btn btn-primary btn-block" />
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+            <div>
+                <a asp-controller="Customer" asp-action="Read">Назад к списку</a>
+            </div>
+        </div>
+     
+
+                @section Scripts {
+                    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                }
